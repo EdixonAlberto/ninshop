@@ -41,7 +41,9 @@
     flex-flow: wrap;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    column-gap: 25px;
+    row-gap: 50px;
+    background: #fdfdfd;
 
     & .loading {
       text-align: center;
@@ -54,6 +56,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      background: #f5f4fa;
 
       & img {
         width: 100%;

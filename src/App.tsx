@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { getGamesAmerica, GameUS } from 'nintendo-switch-eshop'
 import './App.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function App() {
   const [games, setGames] = useState<GameUS[]>([])
@@ -63,7 +64,15 @@ function App() {
                 <img loading="lazy" src={game.horizontalHeaderImage} alt={game.objectID} />
                 <div className="content">
                   <span>{game.title}</span>
-                  {/* TODO: stars */}
+
+                  <div className="stars">
+                    {Array(5)
+                      .fill(null)
+                      .map((_) => (
+                        <FontAwesomeIcon icon="star" />
+                      ))}
+                  </div>
+
                   <span>{formatPrice(game.msrp)}</span>
                 </div>
               </div>
