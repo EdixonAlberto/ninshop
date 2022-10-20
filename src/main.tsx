@@ -5,11 +5,13 @@ import './index.css'
 import { store } from './app/store'
 import { Provider } from 'react-redux'
 import './plugins/fontawesome'
+// TEST:
+import Loading from './components/loading'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <Provider store={store}>
     <React.StrictMode>
-      <App />
+      <Loading />
     </React.StrictMode>
   </Provider>
 )

@@ -1,0 +1,239 @@
+:root {
+  --color-red: #ff0000;
+  --border-top: 8px;
+  --position-top: 100px;
+}
+
+.loading {
+  width: 100%;
+  height: 100vh;
+  overflow-y: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 250px;
+
+  & .joystick {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    animation: 0.5s linear 0.2s 1 normal forwards paused flep;
+
+    & .sticks {
+      height: 60px;
+      position: relative;
+      border-top: 0 !important;
+      border-bottom: 0 !important;
+      animation: 2.5s ease 0s infinite normal forwards running;
+      z-index: 1;
+
+      & .stick-btn {
+        width: 20px;
+        height: 20px;
+        margin: auto;
+        position: relative;
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+      &::before,
+      &::after {
+        content: '';
+        width: 100%;
+        height: 40px;
+        position: absolute;
+        z-index: 0;
+      }
+
+      &::before {
+        top: -25px;
+        border-bottom: 0 !important;
+      }
+
+      &::after {
+        bottom: -25px;
+        border-top: 0 !important;
+      }
+
+      &.stick-l {
+        width: 50px;
+        border: var(--border-top) solid var(--color-red);
+        animation-name: slide-l;
+
+        & .stick-btn {
+          top: 0;
+          background: var(--color-red);
+        }
+
+        &::before,
+        &::after {
+          border: var(--border-top) solid var(--color-red);
+        }
+
+        &::before {
+          left: calc(-1 * (var(--border-top)));
+          border-radius: 50% 4px 0 0;
+        }
+
+        &::after {
+          right: calc(-1 * var(--border-top));
+          border-radius: 0 0 4px 50%;
+        }
+      }
+
+      &.stick-r {
+        width: calc(50px - (var(--border-top) / 2));
+        background: var(--color-red);
+        animation-name: slide-r;
+
+        & .stick-btn {
+          top: 25px;
+          background: #fff;
+        }
+
+        &::before,
+        &::after {
+          background: var(--color-red);
+        }
+
+        &::before {
+          border-radius: 4px 50% 0 0;
+        }
+
+        &::after {
+          border-radius: 0 0 50% 4px;
+        }
+      }
+    }
+  }
+
+  & .progress-bar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 50px;
+
+    & .bar {
+      border-radius: 8px;
+      border-top: 6px solid var(--color-red);
+      animation: 2.5s linear 0s 1 normal forwards paused progress;
+    }
+
+    & p {
+      text-align: center;
+      color: #dfdfdf;
+      font-size: 42px;
+      font-weight: 700;
+      animation: 0.2s ease-out 0s 1 normal forwards paused boost;
+    }
+  }
+
+  & .animate-active {
+    animation-play-state: running !important;
+
+    & .sticks {
+      animation-play-state: paused !important;
+    }
+  }
+}
+
+/* ANIMATIONS _______________________________________________________________________________________________________ */
+
+@keyframes progress {
+  from {
+    width: 500px;
+  }
+  to {
+    width: 0;
+  }
+}
+
+@keyframes boost {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes flep {
+  0% {
+    transform: none;
+  }
+  40% {
+    transform: scaleX(-1);
+  }
+  60% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes slide-l {
+  0% {
+    top: 0;
+  }
+  13% {
+    top: 0;
+  }
+  26% {
+    top: 0;
+  }
+  39% {
+    top: var(--position-top);
+  }
+  52% {
+    top: 0;
+  }
+  65% {
+    top: calc(-1 * var(--position-top));
+  }
+  78% {
+    top: 0;
+  }
+  91% {
+    top: var(--position-top);
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes slide-r {
+  0% {
+    top: 0;
+  }
+  13% {
+    top: calc(-1 * var(--position-top));
+  }
+  26% {
+    top: 0;
+  }
+  39% {
+    top: var(--position-top);
+  }
+  52% {
+    top: 0;
+  }
+  65% {
+    top: 0;
+  }
+  78% {
+    top: 0;
+  }
+  91% {
+    top: var(--position-top);
+  }
+  100% {
+    top: 0;
+  }
+}
