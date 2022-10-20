@@ -1,20 +1,12 @@
-import { useState, useEffect } from 'react'
-import { getGamesAmerica, GameUS } from 'nintendo-switch-eshop'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import './App.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { loadGames } from '@app/store'
 
 function App() {
-  const [games, setGames] = useState<GameUS[]>([])
-
-  async function getGames(): Promise<void> {
-    const response = await getGamesAmerica()
-    const date = new Date()
-    const games = response.filter((game) => {
-      return game.platform == 'Nintendo Switch' && new Date(game.releaseDateDisplay).getFullYear() == date.getFullYear()
-    })
-
-    setGames(games)
-  }
+  const dispatch = useDispatch()
+  const { games, loading } = useSelector((state: RootState) => state.games)
 
   function formatPrice(price: number | null): string {
     if (price) {
@@ -29,9 +21,9 @@ function App() {
     return ''
   }
 
+  // MOUNTED
   useEffect(() => {
-    getGames()
-    return () => {}
+    dispatch(loadGames())
   }, [])
 
   return (
@@ -55,10 +47,10 @@ function App() {
       </header>
 
       <main>
-        {!games.length && <h2 className="loading">loading...</h2>}
+        {loading && <h2 className="loading">loading...</h2>}
 
-        {games.length > 0 &&
-          games.map((game) => {
+        {!loading &&
+          games.map(game => {
             return (
               <div className="card" key={game.objectID}>
                 <img loading="lazy" src={game.horizontalHeaderImage} alt={game.objectID} />
@@ -68,8 +60,8 @@ function App() {
                   <div className="stars">
                     {Array(5)
                       .fill(null)
-                      .map((_) => (
-                        <FontAwesomeIcon icon="star" />
+                      .map((_, i) => (
+                        <FontAwesomeIcon key={i} icon="star" />
                       ))}
                   </div>
 

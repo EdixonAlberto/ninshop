@@ -1,5 +1,3 @@
-type TStore = import('../app/store').store
+type RootState = ReturnType<typeof import('@app/store').store.getState>
 
-type TootState = ReturnType<typeof TStore.getState>
-
-type AppDispatch = typeof TStore.dispatch
+type AppDispatch = typeof import('@app/store').store.dispatch
