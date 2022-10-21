@@ -1,0 +1,38 @@
+[
+  {
+    "objectID": 1,
+    "title": "title-1",
+    "horizontalHeaderImage": "",
+    "msrp": 1
+  },
+  {
+    "objectID": 2,
+    "title": "title-2",
+    "horizontalHeaderImage": "",
+    "msrp": 1
+  },
+  {
+    "objectID": 3,
+    "title": "title-3",
+    "horizontalHeaderImage": "",
+    "msrp": 1
+  },
+  {
+    "objectID": 4,
+    "title": "title",
+    "horizontalHeaderImage": "",
+    "msrp": 1
+  },
+  {
+    "objectID": 5,
+    "title": "title-5",
+    "horizontalHeaderImage": "",
+    "msrp": 1
+  },
+  {
+    "objectID": 6,
+    "title": "title-6",
+    "horizontalHeaderImage": "",
+    "msrp": 1
+  }
+]

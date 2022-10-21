@@ -1,13 +1,17 @@
-:root {
-  --color-red: #ff0000;
-  --border-top: 8px;
-  --position-top: 100px;
+.app {
+  position: relative;
+  top: -100vh;
+  transition: opacity 0.5s linear 0.5s;
+  opacity: 0;
+  z-index: 1;
 }
 
 .loading {
   width: 100%;
   height: 100vh;
+  position: absolute;
   overflow-y: hidden;
+  z-index: 0;
 
   display: flex;
   align-items: center;
@@ -15,21 +19,21 @@
   flex-direction: column;
   row-gap: 250px;
 
-  & .joystick {
+  & .controls {
     display: flex;
     align-items: center;
     column-gap: 8px;
     animation: 0.5s linear 0.2s 1 normal forwards paused flep;
 
-    & .sticks {
+    & .control {
       height: 60px;
       position: relative;
       border-top: 0 !important;
       border-bottom: 0 !important;
-      animation: 2.5s ease 0s infinite normal forwards running;
+      animation: 1s ease 0s infinite normal none running;
       z-index: 1;
 
-      & .stick-btn {
+      & .joystick {
         width: 20px;
         height: 20px;
         margin: auto;
@@ -57,12 +61,12 @@
         border-top: 0 !important;
       }
 
-      &.stick-l {
+      &.left {
         width: 50px;
         border: var(--border-top) solid var(--color-red);
         animation-name: slide-l;
 
-        & .stick-btn {
+        & .joystick {
           top: 0;
           background: var(--color-red);
         }
@@ -83,12 +87,12 @@
         }
       }
 
-      &.stick-r {
+      &.right {
         width: calc(50px - (var(--border-top) / 2));
         background: var(--color-red);
         animation-name: slide-r;
 
-        & .stick-btn {
+        & .joystick {
           top: 25px;
           background: #fff;
         }
@@ -117,25 +121,41 @@
     row-gap: 50px;
 
     & .bar {
+      height: 6px;
       border-radius: 8px;
-      border-top: 6px solid var(--color-red);
-      animation: 2.5s linear 0s 1 normal forwards paused progress;
+      background-color: var(--color-red);
+      animation: 1s linear 0s infinite normal none running progress;
     }
 
     & p {
       text-align: center;
       color: #dfdfdf;
-      font-size: 42px;
+      font-size: 38px;
       font-weight: 700;
-      animation: 0.2s ease-out 0s 1 normal forwards paused boost;
+      animation: 0.5s ease-out 0s 1 normal forwards paused boost;
     }
   }
+}
 
-  & .animate-active {
-    animation-play-state: running !important;
+.loading-stop {
+  & .app {
+    top: 0;
+    opacity: 100%;
+  }
 
-    & .sticks {
+  & .loading {
+    & .control,
+    & .progress-bar .bar {
       animation-play-state: paused !important;
+    }
+
+    & .progress-bar .bar {
+      display: none;
+    }
+
+    & .controls,
+    & p {
+      animation-play-state: running !important;
     }
   }
 }
@@ -143,10 +163,13 @@
 /* ANIMATIONS _______________________________________________________________________________________________________ */
 
 @keyframes progress {
-  from {
+  0% {
+    width: 0;
+  }
+  50% {
     width: 500px;
   }
-  to {
+  100% {
     width: 0;
   }
 }

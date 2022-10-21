@@ -1,31 +1,41 @@
 import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import './loading.css'
+import { loadGames } from '@app/store'
+import App from '../../App'
 
 function Loading() {
+  const dispatch = useDispatch()
+  // const { loading } = useSelector((state: RootState) => state.games)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    // dispatch(loadGames())
     setTimeout(() => {
       setLoading(false)
-    }, 2500)
+    }, 5000)
   }, [])
 
   return (
-    <div className="loading">
-      <section className={'joystick ' + (!loading ? 'animate-active' : '')}>
-        <div className="sticks stick-l">
-          <div className="stick-btn"></div>
-        </div>
+    <div className={loading ? '' : 'loading-stop'}>
+      <div className="loading">
+        <section className="controls">
+          <div className="control left">
+            <div className="joystick"></div>
+          </div>
 
-        <div className="sticks stick-r">
-          <div className="stick-btn"></div>
-        </div>
-      </section>
+          <div className="control right">
+            <div className="joystick"></div>
+          </div>
+        </section>
 
-      <section className="progress-bar">
-        <div className={'bar ' + (loading ? 'animate-active' : '')}></div>
-        <p className={!loading ? 'animate-active' : ''}>100%</p>
-      </section>
+        <section className="progress-bar">
+          <div className="bar"></div>
+          <p>Loading</p>
+        </section>
+      </div>
+
+      <App />
     </div>
   )
 }
