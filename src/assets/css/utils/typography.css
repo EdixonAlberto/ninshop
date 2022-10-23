@@ -1,0 +1,50 @@
+:root {
+  --name-font: '/static/fonts/Signika';
+}
+
+@font-face {
+  src: url('/static/fonts/Signika-Light.ttf') format('truetype');
+  font-family: 'signika';
+  font-weight: 300;
+}
+
+@font-face {
+  src: url('/static/fonts/Signika-Regular.ttf') format('truetype');
+  font-family: 'signika';
+  font-weight: 400;
+}
+
+@font-face {
+  src: url('/static/fonts/Signika-Medium.ttf') format('truetype');
+  font-family: 'signika';
+  font-weight: 500;
+}
+
+@font-face {
+  src: url('/static/fonts/Signika-SemiBold.ttf') format('truetype');
+  font-family: 'signika';
+  font-weight: 600;
+}
+
+@font-face {
+  src: url('/static/fonts/Signika-Bold.ttf') format('truetype');
+  font-family: 'signika';
+  font-weight: 700;
+}
+
+.font-title {
+  font-size: 48px;
+  font-family: signika, sans-serif;
+  font-weight: 700;
+}
+
+.font-subtitle {
+  font-size: 16px;
+  font-family: signika, sans-serif;
+  font-weight: 400;
+}
+
+.font-normal {
+  font-family: signika, sans-serif;
+  font-weight: 300;
+}

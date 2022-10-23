@@ -27,20 +27,29 @@ function App() {
     <div className="app">
       <header>
         <div className="navbar">
-          <div className="name"></div>
+          <div className="brand">
+            <img src="/control.png" alt="Control Nintendo NES" />
+            <h2>NinShop</h2>
+          </div>
 
           <ul>
             <li>Home</li>
             <li>Games</li>
             <li>News</li>
             <li>About</li>
+            <li>Events</li>
+            <li>Contact</li>
+            <li>Shop</li>
           </ul>
 
-          <div className="avatar"></div>
+          <div className="tools">
+            <FontAwesomeIcon className="n-icon" icon="circle-user" />
+            <FontAwesomeIcon className="n-icon" icon="basket-shopping" />
+          </div>
         </div>
 
-        <h1>Ninten Shop</h1>
-        <p>Lorem ipsum dolor sit amet.</p>
+        <h1 className="font-title">Shop</h1>
+        <p className="font-subtitle">HOME | SHOP</p>
       </header>
 
       <main>

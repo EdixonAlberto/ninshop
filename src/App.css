@@ -11,24 +11,50 @@
     }
 
     & h1 {
-      font-size: 45px;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
 
     & .navbar {
-      margin-bottom: 80px;
+      margin-bottom: 50px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
+
+      & .brand {
+        width: 15%;
+        display: inline-flex;
+        align-items: center;
+        column-gap: 10px;
+
+        & img {
+          width: 68px;
+          height: auto;
+        }
+
+        & h2 {
+          font-size: 36px;
+          font-family: signika;
+          font-weight: 600;
+        }
+      }
 
       & ul {
         list-style: none;
-        width: 20%;
+        width: 70%;
         padding: 0;
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        column-gap: 10px;
+        justify-content: center;
+        column-gap: 60px;
+      }
+
+      & .tools {
+        width: 15%;
+        text-align: right;
+
+        & svg {
+          margin-left: 30px;
+        }
       }
     }
   }

@@ -5,7 +5,7 @@ import { loadGames } from '@app/store'
 import App from '../../App'
 
 function Loading() {
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
   // const { loading } = useSelector((state: RootState) => state.games)
   const [loading, setLoading] = useState(true)
 
