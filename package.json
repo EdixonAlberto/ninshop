@@ -1,5 +1,6 @@
 {
   "name": "nintendo-shop",
+  "description": "App web para mostrar juegos de Nintendo",
   "private": true,
   "version": "0.0.1",
   "type": "module",

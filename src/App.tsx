@@ -47,7 +47,7 @@ function App() {
         {games.map(game => {
           return (
             <div className="card" key={game.objectID}>
-              <img loading="lazy" src={game.horizontalHeaderImage} alt={game.objectID} />
+              <img loading="lazy" src={game.horizontalHeaderImage} alt={game.title} />
               <div className="content">
                 <span>{game.title}</span>
 

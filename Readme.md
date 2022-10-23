@@ -1,8 +1,8 @@
-# Nintendo Shop
+# NinShop
 
-Aplicacion web para mostrar juegos de Nintendo
+App web para mostrar juegos de Nintendo
 
-## Tecnologies
+## Tecnologías usadas
 
 - React
 - TypeScript
