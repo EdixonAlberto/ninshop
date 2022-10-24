@@ -3,3 +3,5 @@
 @import './utils/typography';
 @import './utils/normalize';
 @import './components/icons';
+@import './components/selects';
+@import './components/buttons';

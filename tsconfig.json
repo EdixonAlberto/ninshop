@@ -19,7 +19,8 @@
     "paths": {
       "@features/*": ["features/*"],
       "@app/*": ["app/*"],
-      "@assets/*": ["assets/*"]
+      "@assets/*": ["assets/*"],
+      "@components/*": ["components/*"]
     }
   },
   "include": ["src"],

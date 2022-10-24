@@ -1,0 +1,45 @@
+.n-select {
+  position: relative;
+  border: 0.5px solid var(--color-black-light);
+
+  & select {
+    cursor: pointer;
+    margin: 0;
+    padding: 15px 18px;
+    padding-right: 40px;
+    border: 0;
+    border-radius: 0;
+    outline: none;
+    appearance: none;
+    user-select: none;
+
+    & option {
+      font-family: signika;
+      font-weight: 500;
+      font-size: 18px;
+    }
+
+    &:focus,
+    &:hover {
+      border: none;
+      outline: none;
+    }
+  }
+
+  & svg {
+    cursor: pointer;
+    margin: auto;
+    padding-right: 18px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 16px;
+    color: var(--color-red);
+  }
+
+  &:hover {
+    transition: border 0.12s linear 0s;
+    border: 1px solid #000;
+  }
+}

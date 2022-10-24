@@ -1,6 +1,6 @@
 .app {
   & header {
-    height: 250px;
+    height: 280px;
     padding: 40px 100px;
     background: #ff3d55;
     color: rgba(255, 255, 255, 0.87);
@@ -45,7 +45,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        column-gap: 60px;
+        column-gap: 40px;
       }
 
       & .tools {
@@ -60,43 +60,99 @@
   }
 
   & main {
-    width: 100%;
-    height: calc(100vh - 250px);
+    width: 1000px;
+    height: calc(100vh - 250px - 46px);
+    margin: auto;
     padding: 20px;
-    display: flex;
-    flex-flow: wrap;
-    align-items: center;
-    justify-content: center;
-    column-gap: 25px;
-    row-gap: 50px;
-    background: #fdfdfd;
+    background: #fefefe;
 
-    & .loading {
-      text-align: center;
+    & section.category-bar {
+      width: 100%;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      & form {
+        width: 100%;
+        height: max-content;
+        margin-top: -48px;
+        padding: 20px 65px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        column-gap: 25px;
+        border: 0.5px solid var(--color-black-light);
+        border-radius: 0;
+        background-color: #fff;
+        z-index: 2;
+
+        & .shapes {
+          & svg {
+            cursor: pointer;
+            margin-right: 15px;
+            font-size: 22px;
+            color: var(--color-red);
+
+            &.active {
+              transform: scale(1.2) !important;
+            }
+
+            &:hover {
+              transition: transform 0.12s ease-in-out 0s;
+              transform: scale(1.2);
+            }
+          }
+        }
+      }
     }
 
-    & .card {
-      width: 300px;
-      height: 250px;
-      padding: 10px;
+    & section.games-list {
+      width: 100%;
       display: flex;
-      flex-direction: column;
+      margin-top: 40px;
+      padding-bottom: 40px;
+      flex-flow: wrap;
+      align-items: center;
       justify-content: space-between;
-      background: #f5f4fa;
+      column-gap: 25px;
+      row-gap: 50px;
 
-      & img {
-        width: 100%;
-        height: auto;
-      }
-
-      & .content {
+      & .card {
+        width: 300px;
+        height: 250px;
+        padding: 10px;
         display: flex;
         flex-direction: column;
-        row-gap: 10px;
+        justify-content: space-between;
+        background: #f5f4fa;
 
-        & span {
-          font-size: 18px;
-          font-weight: 600;
+        & img {
+          width: 100%;
+          height: auto;
+        }
+
+        & .content {
+          margin-top: 10px;
+          display: flex;
+          flex-direction: column;
+          row-gap: 4px;
+
+          & span {
+            font-weight: 700;
+
+            &.title {
+              text-transform: uppercase;
+              color: var(--color-black-light);
+            }
+          }
+
+          & .stars {
+            & svg {
+              color: var(--color-red);
+              margin-right: 5px;
+            }
+          }
         }
       }
     }

@@ -1,0 +1,21 @@
+.n-button {
+  cursor: pointer;
+  padding: 15px 40px;
+  background-color: var(--color-red);
+  border: none;
+  border-radius: 0;
+  outline: none;
+
+  & span {
+    font-family: signika;
+    font-weight: 500;
+    font-size: 18px;
+    color: #fff;
+    user-select: none;
+  }
+
+  &:hover {
+    transition: transform 0.12s linear 0s;
+    transform: scale(0.95);
+  }
+}
