@@ -1,8 +1,9 @@
 {
   "name": "nintendo-shop",
   "description": "App web para mostrar juegos de Nintendo",
-  "private": true,
   "version": "0.0.1",
+  "license": "UNLICENSED",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -19,7 +20,8 @@
     "querystring": "^0.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-redux": "^8.0.4"
+    "react-redux": "^8.0.4",
+    "use-pagination": "^1.0.6"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",
