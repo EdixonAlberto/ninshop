@@ -1,4 +1,5 @@
 .app {
+  height: 100vh;
   position: relative;
   top: -100vh;
   opacity: 0;

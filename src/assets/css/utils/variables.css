@@ -5,5 +5,7 @@
 
   /* COLORS */
   --color-red: #ff3d55;
-  --color-black-light: #878696;
+  --color-white-dark: #f5f4fa;
+  --color-grey: #878696;
+  --color-font: rgba(255, 255, 255, 0.87);
 }

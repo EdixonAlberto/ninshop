@@ -8,4 +8,9 @@
   row-gap: 10px;
   border: 0.5px solid var(--color-red);
   color: var(--color-red);
+
+  & svg,
+  & span {
+    color: var(--color-red);
+  }
 }

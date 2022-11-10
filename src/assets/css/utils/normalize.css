@@ -35,3 +35,19 @@
     background-color: #f9f9f9;
   }
 } */
+
+body {
+  & span,
+  & p,
+  & a,
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6,
+  & li,
+  & svg {
+    color: var(--color-font);
+  }
+}

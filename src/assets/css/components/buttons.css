@@ -14,8 +14,12 @@
     user-select: none;
   }
 
-  &:hover {
+  &:not([disabled]):hover {
     transition: transform 0.12s linear 0s;
     transform: scale(0.95);
+  }
+
+  &[disabled] {
+    cursor: default;
   }
 }

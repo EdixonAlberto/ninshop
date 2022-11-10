@@ -1,6 +1,6 @@
 .n-select {
   position: relative;
-  border: 0.5px solid var(--color-black-light);
+  border: 0.5px solid var(--color-grey);
 
   & select {
     cursor: pointer;

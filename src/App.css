@@ -1,9 +1,13 @@
+:root {
+  --size-pagination: 60px;
+  --size-card: 300px;
+}
+
 .app {
   & header {
     height: 280px;
-    padding: 40px 100px;
-    background: #ff3d55;
-    color: rgba(255, 255, 255, 0.87);
+    width: 100%;
+    background: var(--color-red);
 
     & h1,
     & p {
@@ -14,13 +18,19 @@
       margin-bottom: 20px;
     }
 
-    & .navbar {
-      margin-bottom: 50px;
+    & .header-navbar {
+      height: 10%;
+      width: 100%;
+      padding: 50px 100px;
+      position: fixed;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      background: inherit;
+      z-index: 10000;
 
       & .brand {
+        user-select: none;
         width: 15%;
         display: inline-flex;
         align-items: center;
@@ -45,7 +55,22 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        column-gap: 40px;
+        column-gap: 20px;
+
+        & li {
+          user-select: none;
+          cursor: pointer;
+          width: 60px;
+          text-align: center;
+
+          &.active {
+            font-weight: 700;
+          }
+
+          &:hover {
+            font-weight: 700;
+          }
+        }
       }
 
       & .tools {
@@ -53,21 +78,36 @@
         text-align: right;
 
         & svg {
+          cursor: pointer;
           margin-left: 30px;
         }
       }
     }
+
+    & .header-banner {
+      user-select: none;
+      height: calc(90% - 100px);
+      width: 100%;
+      padding: 0 100px;
+      position: relative;
+      top: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
   }
 
   & main {
-    width: 1000px;
-    height: calc(100vh - 250px - 46px);
+    width: max-content;
+    height: auto;
     margin: auto;
-    padding: 20px;
+    position: relative;
+    padding: 20px 0 var(--size-pagination) 0;
     background: #fefefe;
 
     & section.category-bar {
-      width: 100%;
+      width: 1000px;
       margin: auto;
       display: flex;
       align-items: center;
@@ -82,7 +122,7 @@
         align-items: center;
         justify-content: space-around;
         column-gap: 25px;
-        border: 0.5px solid var(--color-black-light);
+        border: 0.5px solid var(--color-grey);
         border-radius: 0;
         background-color: #fff;
         z-index: 2;
@@ -109,48 +149,118 @@
 
     & section.games-list {
       width: 100%;
-      display: flex;
-      margin-top: 40px;
-      padding-bottom: 40px;
-      flex-flow: wrap;
-      align-items: center;
-      justify-content: space-between;
-      column-gap: 25px;
-      row-gap: 50px;
 
-      & .card {
-        width: 300px;
-        height: 250px;
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
+      & .items {
+        width: 100%;
+        margin-top: 40px;
+        padding-bottom: 40px;
+
+        display: grid;
+        grid-template-rows: auto;
+        align-content: center;
+        justify-items: center;
         justify-content: space-between;
-        background: #f5f4fa;
+        column-gap: 20px;
+        row-gap: 40px;
 
-        & img {
-          width: 100%;
-          height: auto;
-        }
-
-        & .content {
-          margin-top: 10px;
+        & .card {
+          width: var(--size-card);
+          height: calc(var(--size-card) + 40px);
+          padding: 10px;
           display: flex;
           flex-direction: column;
-          row-gap: 4px;
+          justify-content: space-evenly;
+          background: var(--color-white-dark);
 
-          & span {
-            font-weight: 700;
+          & img {
+            width: 100%;
+            height: auto;
+          }
 
-            &.title {
-              text-transform: uppercase;
-              color: var(--color-black-light);
+          & .content {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 4px;
+
+            & span {
+              font-weight: 700;
+              color: var(--color-grey);
+
+              &.title {
+                text-transform: uppercase;
+                color: #000;
+              }
+
+              &.price {
+                color: #000;
+              }
+            }
+
+            & .stars {
+              & svg {
+                color: var(--color-red);
+                margin-right: 5px;
+              }
+            }
+          }
+        }
+      }
+
+      & .pagination {
+        width: 1000px;
+        height: var(--size-pagination);
+        margin: auto;
+
+        /* position: fixed; */
+        /* right: 0;
+        bottom: 0;
+        left: 0; */
+
+        background: var(--color-white-dark);
+
+        & .content {
+          height: 100%;
+          padding: 10px 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          & button {
+            height: 100%;
+            margin: 20px;
+            padding: 0 40px;
+
+            &[disabled] {
+              visibility: hidden;
             }
           }
 
-          & .stars {
-            & svg {
-              color: var(--color-red);
-              margin-right: 5px;
+          & .page {
+            cursor: pointer;
+            user-select: none;
+            height: 35px;
+            width: 35px;
+            height: 100%;
+            margin: 0 5px;
+            padding: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #fff;
+            border: 0.5px solid var(--color-white-dark);
+            font-weight: 700;
+            color: var(--color-red);
+
+            & span {
+              color: inherit;
+            }
+
+            &.active {
+              color: #fff;
+              background: var(--color-red);
             }
           }
         }

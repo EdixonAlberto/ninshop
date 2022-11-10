@@ -5,15 +5,15 @@ import { loadGames } from '@app/store'
 import App from '../../App'
 
 function Loading() {
-  // const dispatch = useDispatch()
-  // const { loading } = useSelector((state: RootState) => state.games)
-  const [loading, setLoading] = useState(true)
+  const dispatch = useDispatch<any>()
+  const { loading } = useSelector((state: RootState) => state.games)
+  // const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // dispatch(loadGames())
-    setTimeout(() => {
-      setLoading(false)
-    }, 5000)
+    dispatch(loadGames())
+    // setTimeout(() => {
+    //   setLoading(false)
+    // }, 5000)
   }, [])
 
   return (
