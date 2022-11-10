@@ -202,7 +202,7 @@ function App() {
 
         <section className="games-list">
           <div className="items" style={{ gridTemplateColumns: `repeat(${shapeActive}, var(--size-card))` }}>
-            {pagination.currentItems.map((game: TGames[0], i) => {
+            {pagination.currentItems.map((game: TGame, i) => {
               return (
                 <div className="card" key={i}>
                   {game.horizontalHeaderImage ? (

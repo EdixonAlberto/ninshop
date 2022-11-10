@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction, SliceCaseReducers } from '@reduxjs/toolkit'
-import { getGamesAmerica, GameUS } from 'nintendo-switch-eshop'
+import { GameUS } from 'nintendo-switch-eshop'
 
 type TState = {
   loading: boolean
@@ -25,10 +25,17 @@ function filterGames(games: GameUS[], { categorySelected, priceSelected }: TFilt
 }
 
 export const loadGames = createAsyncThunk('games/loadGames', async () => {
-  return await getGamesAmerica()
+  try {
+    const response = await fetch('https://api-ninshop.herokuapp.com/api/games')
+    const { data } = (await response.json()) as { data: GameUS[] }
+    return data || []
+  } catch (error) {
+    console.error((error as Error).message)
+    return []
+  }
 })
 
-export const gameSlice = createSlice<TState, any, 'Games'>({
+export const gameSlice = createSlice<TState, SliceCaseReducers<TState>, 'Games'>({
   name: 'Games',
   initialState: {
     loading: true,
@@ -36,10 +43,10 @@ export const gameSlice = createSlice<TState, any, 'Games'>({
     gamesFiltered: []
   },
   reducers: {
-    filter(state: TState, { payload }: PayloadAction<TFilter>) {
+    filter(state, { payload }: PayloadAction<TFilter>) {
       state.gamesFiltered = filterGames(state.games, payload)
     },
-    resetFilter(state: TState) {
+    resetFilter(state) {
       state.gamesFiltered = filterGames(state.games, FILTER_INITIAL)
     }
   },
@@ -65,10 +72,6 @@ export const gameSlice = createSlice<TState, any, 'Games'>({
       state.gamesFiltered = filterGames(gamesSorted, FILTER_INITIAL)
       state.games = gamesSorted
       state.loading = false
-    })
-
-    builder.addCase(loadGames.rejected, (state, action) => {
-      console.log(state, action)
     })
   }
 })
