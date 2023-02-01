@@ -26,7 +26,7 @@ function filterGames(games: GameUS[], { categorySelected, priceSelected }: TFilt
 
 export const loadGames = createAsyncThunk('games/loadGames', async () => {
   try {
-    const response = await fetch('https://api-ninshop.herokuapp.com/api/games')
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/games`)
     const { data } = (await response.json()) as { data: GameUS[] }
     return data || []
   } catch (error) {

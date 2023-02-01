@@ -13,7 +13,8 @@ dist-ssr
 *.local
 
 # Editor directories and files
-/.vscode
+/.vscode/*
+!.vscode/settings.json
 !.vscode/extensions.json
 .idea
 .DS_Store
@@ -26,3 +27,5 @@ dist-ssr
 # Others
 note.txt
 vite.config.ts.timestamp*
+.env*
+!.env.template
