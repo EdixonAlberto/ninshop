@@ -107,6 +107,8 @@ function App() {
     setBtnPages(pages)
   }, [pagination.items])
 
+  // TEMPLATE __________________________________________________________________________________________________________
+
   return (
     <div className="app">
       <header>
@@ -118,12 +120,12 @@ function App() {
 
           <ul>
             <li className="font-normal">Home</li>
-            <li className="font-normal">Games</li>
+            <li className="font-normal active">Games</li>
             <li className="font-normal">News</li>
             <li className="font-normal">About</li>
             <li className="font-normal">Events</li>
             <li className="font-normal">Contact</li>
-            <li className="font-normal active">Shop</li>
+            <li className="font-normal">Shop</li>
           </ul>
 
           <div className="tools">
@@ -133,8 +135,8 @@ function App() {
         </div>
 
         <div className="header-banner">
-          <h1 className="font-title">Shop</h1>
-          <p className="font-subtitle">HOME | SHOP</p>
+          <h1 className="font-title">Games</h1>
+          <p className="font-subtitle">HOME | GAMES</p>
         </div>
       </header>
 
@@ -202,11 +204,11 @@ function App() {
 
         <section className="games-list">
           <div className="items" style={{ gridTemplateColumns: `repeat(${shapeActive}, var(--size-card))` }}>
-            {pagination.currentItems.map((game: TGame, i) => {
+            {pagination.currentItems.map((game: TGame) => {
               return (
-                <div className="card" key={i}>
+                <div className="card" key={game.objectID}>
                   {game.horizontalHeaderImage ? (
-                    <img loading="lazy" src={game.horizontalHeaderImage} alt={game.title} />
+                    <img src={game.horizontalHeaderImage} alt={game.title} />
                   ) : (
                     <NotImage />
                   )}
@@ -220,7 +222,7 @@ function App() {
                       {Array(5)
                         .fill(null)
                         .map((_, i) => (
-                          <FontAwesomeIcon key={game.objectID + i} icon="star" />
+                          <FontAwesomeIcon key={i} icon="star" />
                         ))}
                     </div>
 

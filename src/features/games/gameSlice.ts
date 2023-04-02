@@ -26,7 +26,10 @@ function filterGames(games: GameUS[], { categorySelected, priceSelected }: TFilt
 
 export const loadGames = createAsyncThunk('games/loadGames', async () => {
   try {
-    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/games`)
+    const { VITE_ENV, VITE_API_URL } = import.meta.env
+    const response = await (VITE_ENV === 'demo'
+      ? fetch('/static/mocks/games.json')
+      : fetch(`${VITE_API_URL}/api/games`))
     const { data } = (await response.json()) as { data: GameUS[] }
     return data || []
   } catch (error) {
