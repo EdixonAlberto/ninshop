@@ -8,9 +8,11 @@ Los datos son obtenidos desde una API desarrollada para este proyecto, puede ver
 
 > **NOTA:** La url mostrada en este repositorio solo muestra una demo de la aplicación, la cual usa datos estáticos provenientes del siguiente archivo: [public/mocks/games.json](./public/mocks/games.json)
 
+![preview](./preview.png)
+
 ### Comandos
 ```sh
-# Inicar proyecto en modo desarrollo
+# Iniciar proyecto en modo desarrollo
 yarn dev
 
 # Compilar proyecto para producción

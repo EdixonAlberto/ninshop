@@ -24,6 +24,9 @@
     "[css]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "[env]": {
+      "editor.defaultFormatter": "IronGeek.vscode-env"
+    },
     "typescript.tsdk": "node_modules/typescript/lib",
     "typescript.preferences.importModuleSpecifier": "non-relative",
     "thunder-client.saveToWorkspace": true,
